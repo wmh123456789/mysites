@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <title>ArcGIS API for JavaScript Sandbox</title>
+  <link rel="stylesheet" type="text/css" href="http://fast.fonts.com/cssapi/4a60d16b-c9e4-404d-89d3-809adb97d65c.css">
+  <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+  <div id="wrapper">
+    <div id="code">
+      <header id="header">
+        <div class="container">
+          <div class="row">
+            <div class="title left">
+              <h1>Arc<strong>GIS</strong> API for JavaScript Sandbox</h1>
+            </div>
+            <div class="links right">
+              <button class="btn toggle"><i class="icon-code"></i> Toggle</button>
+            </div>
+          </div>
+          <div class="tools row">
+            <div class="right">
+              <!--[if (IE) & (lt IE 9)]><script>alert("Your version of Internet Explorer does not support all features of this application. While most functionality will still work, your version of IE is not actively tested with this application. Please use IE9 or later."); history.back();</script><![endif]-->
+              <!--[if !IE]> --><button class="btn secondary" id="save-file" disabled="disabled"><i class="icon-storage"></i> Download</button><!-- <![endif]-->
+              <button class="btn primary" id="update-sandbox" disabled="disabled"><i class="icon-play"></i> Run</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="editor"></div>
+      <div id="handle"></div>
+
+      <aside id="sidebar">
+        <button class="btn toggle maximize"><i class="icon-code"></i></button>
+        <button class="btn primary maximize"><i class="icon-play"></i></button>
+        <button class="btn secondary maximize"><i class="icon-storage"></i></button>
+      </aside>
+
+      <footer>
+        <small id="footer-links"><a href="https://developers.arcgis.com/javascript/">Documentation</a></small>
+        <small id="footer-legal"><a href="http://www.esri.com/legal/copyright-trademarks" title="Esri Legal Information">&copy; Copyright 2013 Environmental Systems Research Institute, Inc. </a>| <a href="http://www.esri.com/legal/privacy">Privacy</a> | <a href="http://www.esri.com/legal/software-license">Legal</a></small>
+      </footer>
+    </div>
+
+    <div id="output">
+      <img id="loader" src="images/ajax-loader.gif">
+    </div>
+  </div>
+
+  <script src="//js.arcgis.com/3.11/"></script>
+  <script src="js/ace/ace.js"></script>
+  <script src="js/FileSaver.js"></script>
+  <script src="js/BlobBuilder.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

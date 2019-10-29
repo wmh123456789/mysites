@@ -1,0 +1,154 @@
+[{
+  "state": "Alaska",
+  "regular": "$4.118"
+}, {
+  "state": "Alabama",
+  "regular": "$3.250"
+}, {
+  "state": "Arkansas",
+  "regular": "$3.301"
+}, {
+  "state": "Arizona",
+  "regular": "$3.531"
+}, {
+  "state": "California",
+  "regular": "$3.972"
+}, {
+  "state": "Colorado",
+  "regular": "$3.613"
+}, {
+  "state": "Connecticut",
+  "regular": "$3.881"
+}, {
+  "state": "District of Columbia",
+  "regular": "$3.737"
+}, {
+  "state": "Delaware",
+  "regular": "$3.424"
+}, {
+  "state": "Florida",
+  "regular": "$3.428"
+}, {
+  "state": "Georgia",
+  "regular": "$3.410"
+}, {
+  "state": "Hawaii",
+  "regular": "$4.338"
+}, {
+  "state": "Iowa",
+  "regular": "$3.386"
+}, {
+  "state": "Idaho",
+  "regular": "$3.780"
+}, {
+  "state": "Illinois",
+  "regular": "$3.579"
+}, {
+  "state": "Indiana",
+  "regular": "$3.476"
+}, {
+  "state": "Kansas",
+  "regular": "$3.332"
+}, {
+  "state": "Kentucky",
+  "regular": "$3.494"
+}, {
+  "state": "Louisiana",
+  "regular": "$3.338"
+}, {
+  "state": "Massachusetts",
+  "regular": "$3.626"
+}, {
+  "state": "Maryland",
+  "regular": "$3.528"
+}, {
+  "state": "Maine",
+  "regular": "$3.640"
+}, {
+  "state": "Michigan",
+  "regular": "$3.533"
+}, {
+  "state": "Minnesota",
+  "regular": "$3.355"
+}, {
+  "state": "Missouri",
+  "regular": "$3.296"
+}, {
+  "state": "Mississippi",
+  "regular": "$3.293"
+}, {
+  "state": "Montana",
+  "regular": "$3.619"
+}, {
+  "state": "North Carolina",
+  "regular": "$3.437"
+}, {
+  "state": "North Dakota",
+  "regular": "$3.544"
+}, {
+  "state": "Nebraska",
+  "regular": "$3.419"
+}, {
+  "state": "New Hampshire",
+  "regular": "$3.586"
+}, {
+  "state": "New Jersey",
+  "regular": "$3.425"
+}, {
+  "state": "New Mexico",
+  "regular": "$3.486"
+}, {
+  "state": "Nevada",
+  "regular": "$3.801"
+}, {
+  "state": "New York",
+  "regular": "$3.834"
+}, {
+  "state": "Ohio",
+  "regular": "$3.490"
+}, {
+  "state": "Oklahoma",
+  "regular": "$3.292"
+}, {
+  "state": "Oregon",
+  "regular": "$3.923"
+}, {
+  "state": "Pennsylvania",
+  "regular": "$3.630"
+}, {
+  "state": "Rhode Island",
+  "regular": "$3.651"
+}, {
+  "state": "South Carolina",
+  "regular": "$3.240"
+}, {
+  "state": "South Dakota",
+  "regular": "$3.492"
+}, {
+  "state": "Tennessee",
+  "regular": "$3.281"
+}, {
+  "state": "Texas",
+  "regular": "$3.368"
+}, {
+  "state": "Utah",
+  "regular": "$3.695"
+}, {
+  "state": "Virginia",
+  "regular": "$3.315"
+}, {
+  "state": "Vermont",
+  "regular": "$3.683"
+}, {
+  "state": "Washington",
+  "regular": "$3.921"
+}, {
+  "state": "Wisconsin",
+  "regular": "$3.494"
+}, {
+  "state": "West Virginia",
+  "regular": "$3.597"
+}, {
+  "state": "Wyoming",
+  "regular": "$3.623"
+}]

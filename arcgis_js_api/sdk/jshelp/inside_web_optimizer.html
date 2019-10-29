@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="ie lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="ie lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="content-language" content="en">
+  <meta name="product" content="js-api-arcgis">
+  <meta name="subject" content="DEVELOPER,WEB,WEB APPLICATIONS,MOBILE">
+  <meta name="sub_category" content="JavaScript API">
+  <meta name="search-collection" content="help">
+  <meta name="search-category" content="help-api,help-api-guide">
+  <meta name="version" content="arcgis-3.11"> <!-- API version -->
+  <meta name="content_type" content="Help Topic"> <!-- options: Help Topic, API Reference, Sample OR Tutorial -->
+  <meta name="last-modified" content="2014-10-02"> <!-- put in date docs were generated -->
+
+  <link rel="stylesheet" href="../styles/screen.css">
+  <link rel="stylesheet" href="../styles/jsdoc.css">
+  <link rel="stylesheet" href="../styles/homepage.css">
+  <link rel="stylesheet" href="../styles/grid.css">
+  <link rel="stylesheet" href="../styles/tree.css">
+  <link rel="stylesheet" href="../prettify/prettify.css">
+  <link rel="stylesheet" href="../styles/tailcoat-search.css">
+  <link href="//fast.fonts.com/cssapi/23855eec-5fdf-4594-9898-0113a04bfef0.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    html {
+      overflow-y: auto;
+    }
+    pre {
+      font-size: 1.1em;
+      line-height: normal;
+      margin: 0;
+    }
+    #header nav li a {
+      font-size: .875em;
+    }
+    #esri-logo {
+      margin-left: 0;
+    }
+    h1.light {
+      color: #fff;
+    }
+    .navigation-bar {
+      background-image: url("../graphics/tailcoat/navigation-bar-background.jpg");
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="../scripts/libs/html5shiv.js"></script>
+    <script src="../scripts/libs/selectivizr-min.js"></script>
+    <style>
+      #wrapper {
+        min-width: 960px;
+      }
+    </style>
+  <![endif]-->
+  <title>
+    ArcGIS API for JavaScript Web Optimizer | Guide | ArcGIS API for JavaScript 
+  </title>
+</head>
+  
+<body>
+    <div class="drawer">
+      <!-- Mobile Nav Drawer -->
+<nav class="drawer-nav drawer-left"> <!-- drawer-right will put the drawer on the right side. -->
+  <div class="drawer-header">
+    <h4 class="site-title"><a href="/">Arc<span>GIS</span> for Developers</a></h4>
+  </div>
+  <ul>
+    <li><a class="icon-compass drawer-link" href="/features/">Features</a></li>
+    <li><a class="icon-gauge drawer-link" href="/plans/">Plans</a></li>
+    <li><a class="icon-book drawer-link" href="/documentation/">Documentation</a></li>
+    <li><a class="icon-support drawer-link" href="/community/">Community</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Nav Drawer -->
+<nav class="drawer-nav drawer-right"> <!-- drawer-right will put the drawer on the right side. -->
+  <div class="drawer-header">
+    <h4 class="site-title user-name">Your Name</h4>
+  </div>
+  <ul>
+    <li>
+      <a class="drawer-link icon-grid-alt" href="/applications/">Applications</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-data-alt" href="/hosted-data/">Hosted Data</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-graph-bar" href="/usage-summary/">Usage Summary</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-storage" href="/downloads/">Downloads</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-comment" href="/feedback/">Feedback</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-user" href="/account/profile/">Account Settings</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-exit log-out-link" href="#">Sign Out</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div class="wrapper">
+      <div>
+        <header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="column-24">
+        <div class="site-brand">
+          <a class="drawer-toggle toggle-site-navigation icon-navigation tablet-show" data-direction="active-left" href="#"></a>
+          <a href="/" class="site-logo">Arc<span>GIS</span> for Developers</a>
+          <span class="site-dropdown-toggle tablet-hide"></span>
+          <nav class="site-dropdown tablet-hide">
+            <a href="http://www.arcgis.com/about/">
+              <h4>ArcGIS</h4>
+              <p>Learn more about ArcGIS for Organizations</p>
+            </a>
+            <a href="/en/" class="current selected">
+              <h4>ArcGIS for Developers</h4>
+              <p>Build location-aware apps with ArcGIS</p>
+            </a>
+            <a href="http://pro.arcgis.com/">
+              <h4>ArcGIS for Professionals</h4>
+              <p>Build your GIS foundation on desktop and server</p>
+            </a>
+            <a href="http://solutions.arcgis.com/">
+              <h4>ArcGIS Solutions</h4>
+              <p>Get free template maps and apps for your industry</p>
+            </a>
+            <a href="http://marketplace.arcgis.com/">
+              <h4>ArcGIS Marketplace</h4>
+              <p>Get apps and data for your organization</p>
+            </a>
+          </nav>
+        </div>
+
+        <nav class="site-nav tablet-hide">
+          <ul>
+            <li><a href="/features/">Features</a></li>
+            <li><a class="hide-if-logged-in" href="/plans/">Plans</a></li>
+            <li><a href="/documentation/">Documentation</a></li>
+            <li><a href="/community/">Community</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-search right">
+          <form class="site-search-form" method="GET" action="/search">
+            <span class="site-search-toggle icon-search"></span>
+            <input class="left site-search-input" type="search" name="q" placeholder="Search">
+            
+            <button type="submit" class="btn transparent site-search-button">Go</button>
+
+            <input type="hidden" name="start" value="0">
+            <input type="hidden" name="product" value="js-api-arcgis">
+          </form>
+        </div>
+
+
+        <!--nav id="logged-out-navigation" class="site-nav right hide-if-logged-in">
+          <ul>
+            <li>
+              <a id="login-link" class="icon-user" href="/sign-in/">Sign In</a>
+            </li>
+          </ul>
+        </nav>
+
+<div id="logged-in-navigation" class="right hide-if-logged-out">
+  <ul id="logged-in-icons" class="left plain inline compact">
+
+    <li>
+      <div class="tooltip">
+        <a href="/applications/" class="">
+          <span class="icon-grid-alt"></span>
+          <span class="visually-hidden">Applications</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Applications</p>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="/hosted-data/" class="">
+          <span class="icon-data-alt"></span>
+          <span class="visually-hidden">Hosted Data</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Hosted Data</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="icon-graph-bar hide-unless-admin">
+      <div class="tooltip">
+        <a href="/usage-summary/" class="">
+          <span class="icon-graph-bar"></span>
+          <span class="visually-hidden">Usage Summary</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Usage Summary</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="icon-storage">
+      <div class="tooltip">
+        <a href="/downloads/" class="">
+          <span class="icon-storage"></span>
+          <span class="visually-hidden">Downloads</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Downloads</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div id="user-dropdown" class="dropdown-navigation dropdown-wrapper right-align right tablet-hide">
+    <a href="/applications/" class="dropdown left">
+      <img width="18" height="18" data-user-avatar="18" class="profile-image"><span data-first-name></span>
+    </a>
+    <div class="dropdown-content">
+      <div class="dropdown-menu">
+        <a href="" data-profile-link class="profile-link">
+          <div class="profile-header">
+            <img width="36" height="36" data-user-avatar="32" class="profile-header-image">
+            <span class="full-name" data-full-name></span>
+            <h6 class="username" data-username></h6>
+          </div>
+        </a>
+        <hr>
+        <ul>
+          <li><a class="hide account-settings-nav-item" href="/account/profile/">Account Settings</a></li>
+          <li><a href="/feedback/">Feedback</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a class="log-out-link" href="#">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div-->
+
+  <!-- Mobile User Menu Button -->
+  <!--a class="mobile-user-dropdown drawer-toggle toggle-site-navigation tablet-show right" data-direction="active-right" href="#">
+    <img>
+  </a>
+</div-->
+
+      </div>
+    </div>
+  </div>
+</header>
+
+          
+  <div class="navigation-bar ">
+  
+    <div class="container">
+      <header>
+        <h1 class="light"><a href="..">ArcGIS API for JavaScript</a></h1>
+      </header>
+       <nav class="navigation-bar-nav">
+        <ul>
+            <li class=""><a href="../">Home</a></li>
+            <li class="current"><a href=".">Guide</a></li>
+            <li class=""><a href="../jsapi/">API Reference</a></li>
+            <li class=""><a href="../jssamples/">Sample Code</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div> <!-- sub 2: header and navigation -->
+
+<div class="container_12">
+  <div class="grid_3 contentWrapper">
+    <div id="toggleToc">
+      <img src="../graphics/tochide.gif"> Hide Table of Contents
+    </div>
+    <div id="apiToc"><div class="treeDiv" id="tree" style="top: 35px; left: 0px;">
+  <div id="treeRoot" ondragstart="return false" onselectstart="return false">
+    <div class="treeNode">
+      <a class="treeUnselected" href="." onclick="clickAnchor(this)">Overview</a>
+    </div>
+    <div class="treeNode">
+      <a class="treeUnselected" href="whats_new.html" onclick="clickAnchor(this)">What's New in Version 3.11</a>
+    </div>
+    <!-- Tutorial-->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif"/>
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">Tutorials</span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_firstmap_amd.html" onclick="clickAnchor(this)">Build your first application</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_agstemplate_amd.html" onclick="clickAnchor(this)">Use an ArcGIS.com webmap</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_dev.html" onclick="clickAnchor(this)">Mobile-specific application</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_directions.html" onclick="clickAnchor(this)">Directions widget</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="tutorial_geocoder.html" onclick="clickAnchor(this)">Geocoder widget</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="tutorial_label_layer.html" onclick="clickAnchor(this)">Labeling features client-side</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_javascript_classes.html" onclick="clickAnchor(this)">Write a class</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_custom_dijit.html" onclick="clickAnchor(this)">Create a re-usable widget</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="tutorial_sharing_maps_secure_layers.html" onclick="clickAnchor(this)">Share maps with secure layers</a>
+        </div>
+      </div>
+    </div>
+    <!--End Tutorial-->
+    <!-- About the API-->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif"/>
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">About the API</span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_gettingstarted.html" onclick="clickAnchor(this)">Get Started</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_accessapi.html" onclick="clickAnchor(this)">Get the API</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_compactbuild.html" onclick="clickAnchor(this)">Compact build</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="localization.html" onclick="clickAnchor(this)">Localization</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="css.html" onclick="clickAnchor(this)">Required CSS</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="supported_browsers.html" onclick="clickAnchor(this)">Supported Browsers</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="community.html" onclick="clickAnchor(this)">Community</a>
+        </div>
+        <!--Working with Dojo-->
+        <div class="treeNode">
+          <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+          <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+            Dojo
+          </span>
+          <div class="treeSubnodesHidden">
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojo.html" onclick="clickAnchor(this)">Work with Dojo</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojoversion.html" onclick="clickAnchor(this)">Get Dojo</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojodijits.html" onclick="clickAnchor(this)">Dijits</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojo_amd.html" onclick="clickAnchor(this)">Dojo and AMD</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojoLayouts.html" onclick="clickAnchor(this)">Dojo Layouts</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_dojohelp.html" onclick="clickAnchor(this)">Additional resources</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="why_dojo.html" onclick="clickAnchor(this)">Why Dojo?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End About the API-->
+    <!--Inside the API-->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+        Work with the API
+      </span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_defaults.html" onclick="clickAnchor(this)">Default API configurations</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_bundle.html" onclick="clickAnchor(this)">Default API strings</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_esri_request.html" onclick="clickAnchor(this)">Retrieve data from a web server</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_navigation.html" onclick="clickAnchor(this)">Map navigation</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_events.html" onclick="clickAnchor(this)">Events</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_extents.html" onclick="clickAnchor(this)">Set Extents</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_editing.html" onclick="clickAnchor(this)">Editing</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_temporal.html" onclick="clickAnchor(this)">Time aware data</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_firsttask.html" onclick="clickAnchor(this)">Adding a task</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_querytask.html" onclick="clickAnchor(this)">Using QueryTask</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_custom_layers.html" onclick="clickAnchor(this)">Creating custom layer types</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_webmap.html" onclick="clickAnchor(this)">Web maps</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_analysiswidgets.html" onclick="clickAnchor(this)">Working with Analysis Widgets</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_geoenrichment.html" onclick="clickAnchor(this)">Working with GeoEnrichment Widgets</a>
+        </div>
+        <!-- graphics -->
+        <div class="treeNode">
+          <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif"/>
+          <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">Graphics and feature layers</span>
+          <div class="treeSubnodesHidden">
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_graphics.html" onclick="clickAnchor(this)">Graphics overview</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_feature_layers.html" onclick="clickAnchor(this)">Feature layer overview</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_renderers.html" onclick="clickAnchor(this)">Symbols and renderers</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_bettermaps.html" onclick="clickAnchor(this)">Better vector mapping</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="inside_styling_svg.html" onclick="clickAnchor(this)">Styling features with CSS</a>
+            </div>
+          </div>
+        </div>
+        <!--info window-->
+        <div class="treeNode">
+          <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+          <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+            Popups and Info Windows
+          </span>
+          <div class="treeSubnodesHidden">
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_infowindow.html" onclick="clickAnchor(this)">Info windows and graphics</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_formatinfowindow.html" onclick="clickAnchor(this)">Format info window content</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_customize.html" onclick="clickAnchor(this)">Customize info windows</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_agspopup.html" onclick="clickAnchor(this)">Popup overview</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_popuptemplate.html" onclick="clickAnchor(this)">Format popup content</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_customizepopup.html" onclick="clickAnchor(this)">Customize popup</a>
+            </div>
+          </div>
+        </div>
+        <!--routing book-->
+        <div class="treeNode">
+          <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+          <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+            Using the RouteTask
+          </span>
+          <div class="treeSubnodesHidden">
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_route_overview.html" onclick="clickAnchor(this)">Routing overview</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_route_routetask.html" onclick="clickAnchor(this)">Working with the route task</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_route_stop_seq.html" onclick="clickAnchor(this)">Optimize the route</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_route_directions.html" onclick="clickAnchor(this)">Driving directions</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_route_time_windows.html" onclick="clickAnchor(this)">Routing with time windows</a>
+            </div>
+          </div>
+        </div>
+        <!--end routing book-->
+        <!--geoprocessing book-->
+        <div class="treeNode">
+          <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+          <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+            Geoprocessor
+          </span>
+          <div class="treeSubnodesHidden">
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_gp_overview.html" onclick="clickAnchor(this)">Geoprocessing overview</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_gp_creating.html" onclick="clickAnchor(this)">Creating the geoprocessor</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_gp_parameters.html" onclick="clickAnchor(this)">Geoprocessor parameters</a>
+            </div>
+            <div class="treeNode">
+              <a class="treeUnselected" href="intro_gp_running.html" onclick="clickAnchor(this)">Geoprocessing results</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end book-->
+    <!-- Mobile -->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">Mobile</span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_viewport.html" onclick="clickAnchor(this)">Viewport Settings</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_hardware.html" onclick="clickAnchor(this)">Feature Detection and Browser Sniffing</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_orientation.html" onclick="clickAnchor(this)">Device Orientation</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_geolocation.html" onclick="clickAnchor(this)">Geolocation</a>
+        </div>
+        <!-- <div class="treeNode"> <img src="../graphics/treenodeplus.gif" class="treeLinkImage" onclick="expandCollapse(this.parentNode)"/> <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">HTML5</span> <div class="treeSubnodesHidden"> <div class="treeNode"> <img src="../graphics/treenodedot.gif" class="treeNoLinkImage"> <a href="jshelp/mobile_touch.htm" class="treeUnselected" onclick="clickAnchor(this)">Touch Events</a> </div> <div class="treeNode"> <img src="../graphics/treenodedot.gif" class="treeNoLinkImage"> <a href="jshelp/mobile_geolocation.htm" class="treeUnselected" onclick="clickAnchor(this)">Geolocation</a> </div> <div class="treeNode"> <img src="../graphics/treenodedot.gif" class="treeNoLinkImage"> <a href="jshelp/mobile_offline.htm" class="treeUnselected" onclick="clickAnchor(this)">Offline</a> </div> <div class="treeNode"> <img src="../graphics/treenodedot.gif" class="treeNoLinkImage"> <a href="jshelp/mobile_storage.htm" class="treeUnselected" onclick="clickAnchor(this)">Web Storage</a> </div> </div> </div> -->
+        <!-- <div class="treeNode"> <img src="../graphics/treenodedot.gif" class="treeNoLinkImage"> <a href="jshelp/mobile_hybrid.htm" class="treeUnselected" onclick="clickAnchor(this)">Hybrid Applications</a> </div> -->
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_frameworks.html" onclick="clickAnchor(this)">Frameworks</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="mobile_references.html" onclick="clickAnchor(this)">References</a>
+        </div>
+      </div>
+    </div>
+    <!-- end book -->
+    <!--Working with ArcGIS Server Services-->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+        ArcGIS Server Services
+      </span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="ags_overview.html" onclick="clickAnchor(this)">Overview</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="ags_rest.html" onclick="clickAnchor(this)">Services directory and the REST API</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="ags_secureservices.html" onclick="clickAnchor(this)">Working with secure resources</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="ags_proxy.html" onclick="clickAnchor(this)">Using the proxy page</a>
+        </div>
+      </div>
+    </div>
+    <!--end book-->
+    <!--Recommendations-->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+        References
+      </span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="intro_devenv.html" onclick="clickAnchor(this)">Set up a development environment</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_web_optimizer.html" onclick="clickAnchor(this)">Using the Web Optimizer</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="limits_for_graphics.html" onclick="clickAnchor(this)">Determine limits for map graphics</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="best_practices_feature_layers.html" onclick="clickAnchor(this)">Feature layer best practices</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_guidelines.html" onclick="clickAnchor(this)">Coding guidelines</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="ref_coordsystems.html" onclick="clickAnchor(this)">Coordinate system IDs</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="inside_faq.html" onclick="clickAnchor(this)">Frequently asked questions</a>
+        </div>
+      </div>
+    </div>
+    <!--end book-->
+    <!--What's new -->
+    <div class="treeNode">
+      <img class="treeLinkImage" onclick="expandCollapse(this.parentNode)" src="../graphics/treenodeplus.gif">
+      <span onclick="expandCollapse(this.parentNode)" style="cursor: pointer;">
+        What's New archive
+      </span>
+      <div class="treeSubnodesHidden">
+        <div class="treeNode">
+          <a class="treeUnselected" href="migration_30.html" onclick="clickAnchor(this)">Migrating to 3.0</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="migration_20.html" onclick="clickAnchor(this)">Migrating to 2.0</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v310.html" onclick="clickAnchor(this)">What's New in Version 3.10</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v39.html" onclick="clickAnchor(this)">What's New in Version 3.9</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v38.html" onclick="clickAnchor(this)">What's New in Version 3.8</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v37.html" onclick="clickAnchor(this)">What's New in Version 3.7</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v36.html" onclick="clickAnchor(this)">What's New in Version 3.6</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v35.html" onclick="clickAnchor(this)">What's New in Version 3.5</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v34.html" onclick="clickAnchor(this)">What's New in Version 3.4</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v33.html" onclick="clickAnchor(this)">What's New in Version 3.3</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v32.html" onclick="clickAnchor(this)">What's New in Version 3.2</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v31.html" onclick="clickAnchor(this)">What's New in Version 3.1</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v30.html" onclick="clickAnchor(this)">What's New in Version 3.0</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v28.html" onclick="clickAnchor(this)">What's New in Version 2.8</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v27.html" onclick="clickAnchor(this)">What's New in Version 2.7</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v26.html" onclick="clickAnchor(this)">What's New in Version 2.6</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v25.html" onclick="clickAnchor(this)">What's New in Version 2.5</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v24.html" onclick="clickAnchor(this)">What's New in Version 2.4</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v23.html" onclick="clickAnchor(this)">What's New in Version 2.3</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v22.html" onclick="clickAnchor(this)">What's New in Version 2.2</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v21.html" onclick="clickAnchor(this)">What's New in Version 2.1</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v20.html" onclick="clickAnchor(this)">What's New in Version 2.0</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v16.html" onclick="clickAnchor(this)">What's New in Version 1.6</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v15.html" onclick="clickAnchor(this)">What's New in Version 1.5</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v14.html" onclick="clickAnchor(this)">What's New in Version 1.4</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v13.html" onclick="clickAnchor(this)">What's New in Version 1.3</a>
+        </div>
+        <div class="treeNode">
+          <a class="treeUnselected" href="new_v12.html" onclick="clickAnchor(this)">What's New in Version 1.2</a>
+        </div>
+      </div>
+    </div>
+    <!--end book-->
+    <!-- Book template <div class="treeNode"> <img src="../graphics/treenodeplus.gif" class="treeLinkImage" onclick="expandCollapse(this.parentNode)"/> <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">Layers</span> <div class="treeSubnodesHidden"> <div class="treeNode"><img src="../graphics/treenodedot.gif" class="treeNoLinkImage"/><a href="http://skrzat/axlguide/jsdoc/class_style.cfm?theClass=ArcGISTiledMapServiceLayer" class="treeUnselected" onclick="clickAnchor(this)">ArcGISTiledMapServiceLayer</a></div> </div> </div>-->
+    <!--end book-->
+  </div>
+</div>
+<!-- pretty printed via http://prettydiff.com/?m=beautify&html -->
+</div> <!-- sub 3:  Conceptual help TOC -->
+  </div>
+  <div class="grid_9 contentWrapper">
+    <div id="topicPane"><style xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    #nstext ol li {
+        list-style-type: none;
+    }
+
+    #nstext strong {
+        font-size:   1em;
+        font-weight: bold;
+    }
+
+    /*
+    // --------------------------------------------------------------------
+    // Selects every <h2> element that are preceded by a <img> element
+    // --------------------------------------------------------------------
+    */
+    img ~ h2 {
+        padding-top: 20px;
+    }
+    /*
+    // --------------------------------------------------------------------
+    // Selects every <h4> element that are preceded by a <div> element
+    // --------------------------------------------------------------------
+    */
+    div.detailSample ~ h4 {
+        padding-top: 20px;
+    }
+
+    /*
+    // --------------------------------------------------------------------
+    // <h4> element style for the Generating a custom build
+    // --------------------------------------------------------------------
+    */
+    .build-option-heading {
+        margin:       1.5em 0 0.5em 0;
+        color:        #127ac2;
+        font-family:  "Avenir LT W01 35 Light", Verdana, Geneva, sans-serif;
+        font-style:   normal;
+        font-variant: normal;
+        line-height:  normal;
+    }
+
+    .appActionButton {
+        background-color:       #e98d32;
+        border:                 none;
+        border-radius:          3px;
+        box-shadow:             0 1px 1px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+        color:                  #fff;
+        cursor:                 pointer;
+        font-family:            "Avenir LT W01 65 Medium", Arial, Helvetica, sans-serif;
+        font-size:              14px;
+        letter-spacing:         1px;
+        line-height:            1.71429em;
+        padding:                0.3em 1.25em;
+        text-shadow:            0 -1px 1px rgba(0, 0, 0, 0.125);
+        text-transform:         uppercase;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .appSignInButton {
+        background-color:       #ededed;
+        border:                 none;
+        border-radius:          3px;
+        box-shadow:             0 1px 1px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+        color:                  gray;
+        cursor:                 pointer;
+        font-family:            "Avenir LT W01 65 Medium", Arial, Helvetica, sans-serif;
+        font-size:              14px;
+        letter-spacing:         1px;
+        line-height:            1.71429em;
+        padding:                0.3em 1.25em;
+        text-shadow:            0 -1px 1px rgba(0, 0, 0, 0.125);
+        text-transform:         uppercase;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .code-optimizer {
+        font:  13px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        color: #000000;
+    }
+
+    .code-emphasis {
+        font:        13px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        color:       #000000;
+        font-weight: bold;
+    }
+
+    .code-optimizer.code-deletion {
+        background-color: #fdd;
+    }
+
+    .code-optimizer.code-insert {
+        background-color: #dfd;
+    }
+
+    .warning-text {
+        color: #CA0013;
+    }
+</style>
+
+<div id="pageBanner">ArcGIS API for JavaScript Web Optimizer</div>
+
+<div id="nstext">
+
+<!--***START TEXT - DO NOT WRITE ABOVE THIS LINE***-->
+
+<p>
+    The ArcGIS API for JavaScript Web Optimizer is a web application that generates custom builds of the ArcGIS
+    API for JavaScript. The advantage of using a custom build is that your application downloads and parses only
+    the required JavaScript resources which will make your application load faster.
+</p>
+<ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#prereq">Prerequisites</a></li>
+    <li><a href="#signin">Generate a custom build</a>
+        <ol>
+            <li><a href="#signin">Sign in</a></li>
+            <li><a href="#create">Set up your build</a></li>
+            <li><a href="#confirm">Select modules that will be included in bundled output</a></li>
+            <li><a href="#publish">Download or publish to cloud</a></li>
+        </ol>
+    </li>
+    <li><a href="#use">Using a custom build</a></li>
+    <li><a href="#gains">Potential Performance Gains</a></li>
+    <li><a href="#build_report">Accessing the build report</a></li>
+    <li><a href="#faq">FAQ and Common Errors</a></li>
+</ul>
+
+<h2 id="intro">Introduction</h2>
+
+<p>
+    The Web Optimizer offers an alternative to the "one-size fits all" builds that Esri offers via the
+    <a href="http://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>
+    (<code>js.arcgis.com/3.11/</code> and <code>js.arcgis.com/3.11compact/</code>) or as a download. This
+    works well for development of smaller web applications. But as applications grow in size and
+    functionality, this approach breaks down. When an application uses a large number of modules not
+    included in the available builds, applications generate more http requests, download more JavaScript and
+    take longer to load. A custom build combines the required modules which reduces the number of http
+    requests and application load time.
+</p>
+
+<p>
+    Once a custom build is created, it is available for download and can be hosted on your web server or
+    cloud hosted and served via js.arcgis.com.
+</p>
+
+<h2 id="prereq">Prerequisites</h2>
+<ul>
+    <li>All code must use AMD-style require and define to load and create modules. Code that uses global
+        references to Esri and/or Dojo modules is not supported.
+    </li>
+    <li>ArcGIS Online organization or ArcGIS for Developers account.</li>
+    <li>JS API version 3.4 or later.</li>
+    <li>Custom modules should define a <a href="http://package.json.nodejitsu.com/">package.json</a> file
+        that, at minimum, defines name and version properties.
+    </li>
+</ul>
+
+<h2 id="signin">Generate a custom build – Sign In</h2>
+
+<p>
+    Use the
+    <button class="appSignInButton" type="button">Sign In</button> button in the upper-right corner of
+    the <a href="http://jso.arcgis.com" target="_blank"> Web Optimizer application</a>.
+</p>
+
+<p>
+    Sign in using either an <a href="https://www.arcgis.com/features/plans/pricing.html" target="_blank">ArcGIS Online
+    organization account</a> or an
+    <a href="https://developers.arcgis.com/en/sign-up/" target="_blank">ArcGIS for Developers account</a>. Trial
+    developer accounts have full access to the app. Public ArcGIS Online accounts do not have access to the
+    app. If signing in fails, please confirm that the account being used is either an ArcGIS Online organizational or
+    ArcGIS for Developers account. If you continue to have trouble, please
+    <a href="mailto:js_feedback@esri.com?subject=Web Optimizer:  trouble signing in">email us</a>.
+</p>
+
+<p>
+    When signing in for the first time, you will not have any previous builds. To start a build,
+    use the
+    <button class="appActionButton" type="button">New Build</button>
+    button.
+</p>
+
+<p>
+    Once an account has one or more custom builds, they are shown as a table with <strong>build date</strong> and
+    <strong>status</strong>.
+    Builds can be deleted or renamed here. An existing build can be used as the basis for a new build via
+    the duplicate button. If a build has been published to the cloud, the URL for the build is also
+    available here. <strong>Once a build is published to the cloud it cannot be renamed</strong>.
+</p>
+
+<img src="./web_optimizer/jso-01.png">
+
+<h2 id="create">Generate a custom build – Set up your build</h2>
+
+<p>There are four ways to specify the modules to include in a build:</p>
+<ul>
+    <li>upload application in a <code>.zip</code> file</li>
+    <li>provide a URL to a publicly accessible application</li>
+    <li>upload a text file with a list of modules</li>
+    <li>manually select modules to include</li>
+</ul>
+
+<p>
+All four methods require a build name to be specified.
+</p>
+
+<h4 class="build-option-heading">Upload Zipped App</h4>
+<img src="./web_optimizer/jso-03-new-zip.png">
+
+<p>Help is provided on the right side of the screen. When creating a build from a <code>.zip</code> file, the
+    <code>.zip</code> file
+    should be a zipped copy of an application. Any custom modules used by the application need to be
+    included in the <code>.zip</code> file. After specifying the <code>.zip </code>file via the "Choose File"
+    button, provide the name
+    of the <code>.html</code> or <code>.js</code> file that defines <code>dojoConfig</code> and tells the module
+    loader where to find custom
+    packages.
+</p>
+
+<p>
+    <strong>Note:</strong> When using the Web Optimizer, if you want your custom packages flattened into the single
+    built
+    layer
+    file you must choose the <code>zip</code> file option.
+</p>
+
+<p>
+    <strong>Custom package:</strong>
+    Given the following directory structure:
+</p>
+<div class="detailSample">
+    <pre class="prettyprint" style="border:none; font-size: 0.9em">
+    <!-- @formatter:off -->
+    application_folder
+    |- index.html
+    |-- css
+    |-- extraCustomModule
+    |---- package.json
+    |---- MyCustomModule.js
+    <!-- @formatter:on -->
+    </pre>
+</div>
+
+
+<p>
+    The <code>package.json</code> file would like like the following:
+</p>
+<div class="detailSample">
+    <pre class="prettyprint" style="border:none; font-size: 0.9em">
+    <!-- @formatter:off -->
+    {
+    "name": "extraCustomModule",
+    "version": "0.0.1",
+    "description": "A custom module that provides awesome functionality."
+    }
+    <!-- @formatter:on -->
+</pre>
+</div>
+
+
+<p>
+    The recommended selection for the "JS API version" drop-down is "Auto-detect" but it is possible to
+    explicitly specify the version of the API to use for a build.
+</p>
+
+<p>
+    <strong>Note:</strong> Auto-detect is only applicable to pages referencing CDN URLs such as
+    <code>http://js.arcgis.com/3.11</code>.
+    If you are not referencing the ArcGIS API for JavaScript in your source code using a CDN URL, then just specify
+    the version your are targeting in the <strong>JS API Version</strong> drop-down.
+</p>
+
+<h4 class="build-option-heading">Enter a URL</h4>
+<img src="./web_optimizer/jso-04-new-url.png">
+
+<p>Instead of uploading application code, provide a URL to a public application to crawl and determine
+    modules to include in a build.</p>
+
+<h4 class="build-option-heading">Upload Module List</h4>
+<img src="./web_optimizer/jso-05-new-list.png">
+
+<p>An example of the format expected for a text file with a list of modules to include in a build is shown
+    on the right. When using a module list, the API version must be set since there is no way to
+    automatically detect it.</p>
+
+<h4 class="build-option-heading">Manual Selection</h4>
+<img src="./web_optimizer/jso-06-new-manual.png">
+
+<p>The final option for specifying the modules included in a build is to manually select what to include.
+    When using this method, in addition to an API version, a "Default Module Selection" is also required.
+    Options are "compact", "standard" and "none". "Compact" and "standard" correspond to the modules
+    included in the <a href="./inside_compactbuild.html">compact</a> and standard builds available on the Esri CDN from
+    js.arcgis.com. </p>
+
+<p>Depending on the method selected, choose "Upload", "Analyze" or "Continue".</p>
+
+<h2 id="confirm">Generate a custom build – Select modules that will be included in bundled output</h2>
+
+<p>After supplying a group of modules to include in a build, the next step is to confirm all dependencies
+    are found and optionally include additional modules. Double-check all desired modules are included and
+    then select the
+    <button class="appActionButton" type="button">Build</button>
+    button.
+</p>
+
+<img src="./web_optimizer/jso-07-select-modules.png">
+
+<p>"Select Modules" also includes an "Advanced Optimizations" section. More information on this section will
+    be published in the near future.</p>
+
+<img src="./web_optimizer/jso-08-building.png">
+
+<p>Generating a custom build takes a couple of minutes. If numerous people are running builds, a request to
+    generate a build might be queued. Regardless, it's usually best to close the browser tab and wait for
+    the email notification that a build has finished.</p>
+
+<img src="./web_optimizer/jso-08-build-notification.png">
+
+<h2 id="publish">Generate a custom build – Download or publish to cloud</h2>
+
+<img src="./web_optimizer/jso-09-download.png">
+
+<p>Once a build successfully completes it is available for download. The "<code>dojo.js</code> layer size"
+    represents the
+    size of the file that includes all selected modules and is what applications using a custom build will
+    reference and download. The <code>.zip</code> file available for download includes all modules from the ArcGIS
+    API for JavaScript
+    as well as all Dojo packages (hence the increased size). All modules are included so that all Esri and
+    Dojo modules are available to apps using a custom build, although apps using a custom build should not
+    load modules not included in a build as that would defeat the purpose for using a custom build.</p>
+
+<img src="./web_optimizer/jso-10-publish.png">
+
+<p>Optionally, builds can be CDN-hosted via the "Publish to Cloud" option. Organizational users can publish
+    an unlimited number of builds but developer accounts are limited to publishing a single build. Once a
+    build has been published, it can be used via a "CDN URL" which is available from the "My Builds" section
+    of the Web Optimizer. Publishing a build takes a few minutes and a notification email is
+    sent once a build is successfully published.</p>
+
+<img src="./web_optimizer/jso-11-publish-notification.png">
+
+<h2 id="use">Using a custom build</h2>
+
+<p>
+    <strong>Note:</strong>
+    At minimum, you will generally want to set the <span class="code-emphasis">async</span> config option to
+    <span class="code-emphasis">true</span> as
+    indicated below, in order for the Dojo loader to operate in asynchronous mode.
+</p>
+    <div class="detailSample">
+        <pre class="prettyprint" style="border:none; font-size: 0.9em">
+    <span class="code-optimizer">&lt;script src="./web_optimizer/path/to/dojo/dojo.js" data-dojo-config="<span class="code-emphasis">async: true</span>">&lt;/script></span></pre>
+    </div>
+<p>
+    If you previously used the <span class="code-optimizer">packages</span> or <span class="code-optimizer">paths</span>
+    configuration settings in development,
+    they should not be necessary with this built release, as all packages have been arranged as siblings of the dojo
+    package.
+
+    If your web page or application references CSS resources within Dojo's, Esri's, or your own custom packages,
+    you will also want to reference the respective flattened CSS resources in this built release instead.
+</p>
+
+<h4 class="build-option-heading">Downloading a custom build and hosting it locally:</h4>
+
+<p>
+    This tutorial assumes that you are installing the <span class="code-emphasis">web-optimizer-tutorial</span>
+    build
+    in the root of your web server (IIS inetpub\wwwroot) or (Apache htdocs) where
+    <span class="code-emphasis">myserver.fqdn.com</span> is the domain name of your web site.
+</p>
+
+<p>
+    <span class="code-emphasis">http://myserver.fqdn.com/web-optimizer-tutorial</span> is the location where you
+    have deployed
+    your custom ArcGIS API for JavaScript build. The <span class="code-emphasis">http://myserver.fqdn.com</span>
+    segment is the
+    web server fully qualified domain name
+    (<a href="http://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a>) and
+    <span class="code-emphasis">web-optimizer-tutorial</span> is the name of your custom build. For more information
+    about web servers
+    and <a href="http://en.wikipedia.org/wiki/Virtual_directory">virtual directories</a> consult your web server's
+    documentation
+    or Information Technology department.
+</p>
+
+<p>
+    <span class="code-optimizer code-deletion">-Delete the code that looks like this.</span>
+</p>
+
+<p>
+    <span class="code-optimizer code-insert">+Add the code that looks like this.</span>
+</p>
+
+
+    <!-- @formatter:off -->
+    <div class="detailSample"><pre class="prettyprint" style="border:none; font-size: 0.9em">
+&lt;!doctype html>
+&lt;html>
+&lt;head>
+    ...
+<span class="code-optimizer code-deletion">   -&lt;link rel="stylesheet" href="http://js.arcgis.com/3.11compact/js/esri/css/esri.css"></span>
+<span class="code-optimizer code-insert">   +&lt;link rel="stylesheet" href="<span class="code-emphasis">http://myserver.fqdn.com/web-optimizer-tutorial</span>/esri/css/esri.css"></span>
+<span class="code-optimizer code-deletion">    -&lt;script>
+    -    var dojoConfig = {
+    -        packages: [
+    -            {
+    -                name: "<span class="code-emphasis">extraCustomModule</span>",
+    -                location: location.pathname.replace(/\/[^/]+$/, "") + "extraCustomModule"
+    -            }
+    -        ],
+    -        async: true
+    -    };
+    - &lt;/script>
+    -&lt;script src="http://js.arcgis.com/3.11compact/init.js">&lt;/script></span>
+<span class="code-optimizer code-insert">   +&lt;script src="<span class="code-emphasis">http://myserver.fqdn.com/web-optimizer-tutorial</span>/dojo/dojo.js" data-dojo-config="async: true">&lt;/script></span>
+    &lt;script>
+        var map, customModule;
+
+        require([
+            "esri/map", "<span class="code-emphasis">extraCustomModule/MyCustomModule</span>", "dojo/domReady!"
+            ], function (Map, MyCustomModule) {
+            map = new Map("mapDiv", {
+                basemap: "streets",
+                center: [-56.049, 38.485],
+                zoom: 3
+            });
+
+            customModule = new MyCustomModule();
+        });
+    &lt;/script>
+&lt;/head>
+&lt;body>
+    ...
+    &lt;div id="mapDiv" style="width: 100%; height: 100%;">&lt;/div>
+    ...
+&lt;/body>
+&lt;/html>
+    </pre>
+    </div>
+
+    <!-- @formatter:on -->
+<h4 class="build-option-heading">Using the "Publish to Cloud" option:</h4>
+
+<p>
+    <strong>Note:</strong> Publishing Not Available for Custom Packages
+</p>
+
+<p>
+    If you attempt to "Publish to Cloud" when your custom build contains custom modules the following message will
+    be displayed. <span class="warning-text">"This build contains custom packages. Only builds limited to the packages within the
+        ArcGIS API for JavaScript may be published."</span>
+</p>
+
+<p>
+    Once your build has been published, obtain the CDN URL to your hosted build. The URL will be in the form of
+    <span class="code-emphasis">http://js.arcgis.com/o/your_user_name/web-optimizer-tutorial/dojo/dojo.js</span>
+    where the
+    <span class="code-emphasis">your_user_name</span> is your ArcGIS Online organization or ArcGIS for Developers
+    account username
+    and the <span class="code-emphasis">web-optimizer-tutorial</span> is the build name.
+</p>
+<img class="with-padding" src="./web_optimizer/jso-11-publish-cloud-result.png">
+
+<p>
+    You may also obtain the CDN URL from the main page in the <span class="builds-page-title">My Builds</span>
+    table by clicking on the CDN URL link.
+</p>
+<img class="with-padding" src="./web_optimizer/jso-11-publish-cloud-main.png">
+
+<p>
+    See the following code sample below for modifications necessary to use the hosted build using the CDN URL.
+</p>
+
+<p>
+    <span class="code-optimizer code-deletion">-Delete the code that looks like this.</span>
+</p>
+
+<p>
+    <span class="code-optimizer code-insert">+Add the code that looks like this.</span>
+</p>
+
+
+<div class="detailSample">
+    <pre class="prettyprint" style="border:none; font-size: 0.9em">
+    <!-- @formatter:off -->
+&lt;!doctype html>
+&lt;html>
+&lt;head>
+    ...
+<span class="code-optimizer code-deletion">    -&lt;link rel="stylesheet" href="http://js.arcgis.com/3.11compact/js/esri/css/esri.css"></span>
+<span class="code-optimizer code-insert">    +&lt;link rel="stylesheet" href="<span class="code-emphasis">http://js.arcgis.com/o/your_user_name/web-optimizer-tutorial</span>/esri/css/esri.css"></span>
+<span class="code-optimizer code-deletion">    -&lt;script src="http://js.arcgis.com/3.11compact/init.js">&lt;/script></span>
+<span class="code-optimizer code-insert">    +&lt;script src="<span class="code-emphasis">http://js.arcgis.com/o/your_user_name/web-optimizer-tutorial</span>/dojo/dojo.js" data-dojo-config="async: true">&lt;/script></span>
+    &lt;script>
+        var map;
+
+        require([
+            "esri/map", dojo/domReady!"
+            ], function (Map) {
+            map = new Map("mapDiv", {
+                basemap: "streets",
+                center: [-56.049, 38.485],
+                zoom: 3
+            });
+        });
+    &lt;/script>
+&lt;/head>
+&lt;body>
+    ...
+    &lt;div id="mapDiv" style="width: 100%; height: 100%;">&lt;/div>
+    ...
+&lt;/body>
+&lt;/html>
+        </pre>
+</div>
+<!-- @formatter:on -->
+
+<h2 id="gains">Potential Performance Gains</h2>
+
+<p>Numbers in this table are for JS-only resources.</p>
+<img src="./web_optimizer/gains.png">
+
+<h2 id="build_report">Accessing the build report</h2>
+
+<p>
+    During the build process, the optimization sequence occurs. Once a build is complete, a build report is
+    available. One option to view the build report is once the build result is complete. Click the
+    <span class="view-build-output-link">View Build Output</span> link to see the <span class="build-results-title">Build Results</span>.
+</p>
+<img class="with-padding" src="./web_optimizer/jso-12-build-report-main.png">
+
+<p>
+    In the <span class="build-results-title">Build Results</span> panel, click the "extended build output" checkbox.
+    This will display the build report in the <span class="build-results-title">Build Results</span> panel.
+</p>
+
+<img class="with-padding" src="./web_optimizer/jso-12-build-report-extended.png">
+
+<p>
+    There is another option to access the build report. When you choose the option to download your build locally
+    by clicking on the <span class="view-build-output-link">Download Build (zipped)</span> a build report is
+    included
+    in the download. See the graphic below for details.
+</p>
+
+<img class="with-padding" src="./web_optimizer/jso-12-build-report-download.png">
+
+<h2 id="faq">FAQ and Common Errors</h2>
+<ul>
+    <li><strong>What do the various build statuses mean?</strong></li>
+    <p>Build configurations can have a status of draft, building, pending, completed, publishing and
+        published.</p>
+    <ul>
+        <li>Draft: more information is required before a custom build can be generated.</li>
+        <li>Building: a custom build is being built.</li>
+        <li>Pending: build process completed but more input is required before it can be finalized.</li>
+        <li>Completed: build finished and is available for download or can be published to the cloud.</li>
+        <li>Publishing: files for the custom build are being copied to the cloud.</li>
+        <li>Published: copy to the cloud has finished and the custom build is available via the
+            js.arcgis.com CDN.
+        </li>
+    </ul>
+    <p></p>
+    <li><strong>What does "Build complete with possible errors" mean?</strong></li>
+    <p>This means that the build finished, but there were warnings and/or errors that could prevent the
+        custom build from functioning as desired. The most common error is "Missing or empty
+        <code>package.json</code>."
+        which can be addressed by adding a
+        <a href="http://package.json.nodejitsu.com/"><code>package.json</code></a>
+        file for your custom modules. You can also safely ignore this error, but we recommend using a
+        <code>package.json</code> to avoid the habit of ignoring errors.</p>
+
+    <p>Selecting "Ignore Errors" will allow the app to continue and the build will be available to download
+        so it can be tested.</p>
+    <li><strong>Why is my build download several megabytes?</strong></li>
+    <p>The actual file you will use in your application is much smaller, usually on the order of 200 KB
+        gzipped. The reason the build download is much larger is that additional CSS and image resources for
+        various Dojo themes and components are always included in a build download so they are
+        available. This provides greater flexibility when using custom, optimized builds.</p>
+    <li><strong>How long are builds stored?</strong></li>
+    <p>Builds are stored on a server as long as the account that created it is active. Builds are deleted
+        30-60 days after an account is closed or expires.</p>
+    <li><strong>Do custom builds require ArcGIS Online credits?</strong></li>
+    <p>No.</p>
+    <li><strong>Where can I obtain more information on Dojo configuration settings?</strong></li>
+    <ul>
+        <li><a href="http://dojotoolkit.org/documentation/tutorials/1.10/dojo_config/">Configuring Dojo with
+            dojoConfig</a></li>
+        <li>
+            <a href="http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/">What
+                is the difference between a package, a path and an alias?</a></li>
+    </ul>
+</ul>
+
+<p>
+    Please <a href="mailto:js_feedback@esri.com?subject=JavaScript%20Web%20Optimizer%20FAQ%20request">email
+    us</a> to submit requests for additions this FAQ.
+</p>
+
+<!--***END TEXT - DO NOT WRITE BELOW THIS LINE***-->
+</div>
+<div id="wh_footer" class="footnote" align="center">
+  <a href="mailto:js_feedback@esri.com?subject=Feedback on jshelp\inside_web_optimizer.html">Report an error on this page</a>.
+  <br>
+  Copyright &copy; Environmental Systems Research Institute, Inc.
+</div>
+</div> <!-- sub 4:  main content for a page and feedback markup -->
+  </div>
+</div> <!-- end main content -->
+
+<!-- TOC script -->
+<script src="../scripts/tree.js"></script>
+
+<script src="../prettify/prettify.js"></script>
+<script>
+  var dojoConfig = {
+    async: true,
+    packages: [{
+      "name": "js",
+      "location": location.pathname.replace(/\/[^/]+$/, "/") + "../scripts"
+    }]
+  };
+</script>
+<script src="../scripts/libs/tailcoat.js"></script>
+<script src="//js.arcgis.com/3.11compact/"></script> <!-- add API version -->
+<script src="../scripts/esri-main-concepts.js"></script>
+<!-- Google Analytics -->
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-215788-63', 'arcgis.com');
+ga('send', 'pageview');</script>
+<!-- End Google Analytics -->
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NJGGV5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJGGV5');</script>
+<!-- End Google Tag Manager -->
+ <!-- sub 5:  add script to redirect old hash based URLs to static pages and google analytics -->
+</body>
+</html>

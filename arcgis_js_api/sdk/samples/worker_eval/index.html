@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <title>Basic WorkerClient</title>
+    <style>
+    body{
+        width: 90%;
+        height: 90%;
+        margin-left: 2%;
+    }
+    #code, #results{
+    font-family: monospace;
+    font-size: medium;
+    }
+    #results{
+        position: relative;
+        width: 60%;
+        height: 60%;
+        min-height: 300px;
+        overflow: auto;
+        border: black 2px solid;
+    }
+    </style>
+    <script>
+        dojoConfig = {
+            paths: {
+                local: location.pathname.split('/').slice(0,-1).join('/')
+            }
+        };
+    </script>
+    <script src="http://jsdev.arcgis.com/3.9/"></script>
+</head>
+<body>
+    <div> 
+        <input type="text" id="code" value="" placeholder="Write code to be evaluated here" size="100"><br>
+        <button id="btn-eval" type="button">Evaluate</button><br><hr>
+        <p><button id="btn-cb1" type="button">WorkerCallback-Toggle Case</button>
+        &mdash; Adds a worker callback that toggles the case of all text output from the worker. Because callbacks are chained, add this an even number of times and it will return text in the original case.</p>
+        <p><button id="btn-cb2" type="button">WorkerCallback-Negate Numbers</button>
+        &mdash; Multipy numeric results by <code>-1</code> . Like above, adding this a even number of times will return the original result.</p>
+        <hr>
+        <p><b>Results</b><span id="status">&nbsp;</span><br></p>
+        <div id="results">
+            &nbsp;
+        </div>
+    </div>
+    <script src="simpleworkers.js"></script>
+</body>
+</html>

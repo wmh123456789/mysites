@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Query RelatedRecords Example</title> 
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/dijit/themes/tundra/tundra.css"> 
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/dojox/grid/resources/Grid.css"> 
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/dojox/grid/resources/tundraGrid.css"> 
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+    <style>
+        html, body, #mapDiv {
+          height: 100%;
+          width: 100%;
+          margin: 0; 
+          padding: 0;
+        }
+
+        body {
+          background-color:#777;
+          overflow:hidden;      
+          font-family: "Trebuchet MS";
+        }
+
+        #header {
+          background-color:#444;
+          color:orange;
+          font-size:15pt;
+          text-align:center;
+          font-weight:bold;             
+        }
+
+        #footer {
+          background-color:#444;
+          color:orange;
+          font-size:10pt;
+          text-align:center;
+        }
+    </style>
+
+    <script src="http://js.arcgis.com/3.11/"></script> 
+    <script> 
+    var map, wellFeatureLayer, grid, store;
+    
+      require([
+        "esri/map", 
+        "esri/layers/FeatureLayer", 
+        "esri/layers/ArcGISDynamicMapServiceLayer",
+        "esri/tasks/query", 
+        "esri/tasks/QueryTask", 
+        "esri/tasks/RelationshipQuery",
+        "esri/toolbars/draw",
+        "dojox/grid/DataGrid", 
+        "dojo/data/ItemFileReadStore",
+        "esri/layers/ImageParameters",
+        "dojo/parser",
+        "esri/geometry/Extent",
+        "dojo/_base/array",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/InfoTemplate",
+        "dijit/layout/BorderContainer", 
+        "dijit/layout/ContentPane", 
+        "dojo/domReady!"
+      ], function(
+        Map, 
+        FeatureLayer, 
+        DynamicMapServiceLayer,
+        Query, 
+        QueryTask, 
+        RelationshipQuery,
+        Draw,
+        DataGrid, 
+        ItemFileReadStore,
+        ImageParameters,
+        parser,
+        Extent,
+        array,
+        SimpleMarkerSymbol,
+        InfoTemplate
+      ) {
+        parser.parse();
+        map = new Map("mapDiv", {
+          basemap: "satellite",
+          center: [-97.395, 37.537],
+          zoom: 11
+        });
+ 
+        var imageParams = new ImageParameters();
+        imageParams.layerIds = [0,1];
+        imageParams.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+        var dynamicLayer = new DynamicMapServiceLayer("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSPetro/MapServer", {imageParameters:imageParams});
+        map.addLayer(dynamicLayer);
+ 
+        var selectionSymbol = new SimpleMarkerSymbol().setColor("red");
+        wellFeatureLayer = new FeatureLayer("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSPetro/MapServer/0", {
+          mode: FeatureLayer.MODE_SELECTION,
+          infoTemplate: new InfoTemplate("Well: ${API_WELL_N}","${*}")
+        });
+        wellFeatureLayer.setSelectionSymbol(selectionSymbol);
+        wellFeatureLayer.on("selection-complete", findRelatedRecords); 
+        map.addLayer(wellFeatureLayer);
+
+        map.on("click", findWells);
+      
+        function findRelatedRecords(evt) {
+            var features = evt.features;
+            var relatedTopsQuery = new RelationshipQuery();
+            relatedTopsQuery.outFields = ["*"];
+            relatedTopsQuery.relationshipId = 3;
+            relatedTopsQuery.objectIds = [features[0].attributes.OBJECTID];
+            wellFeatureLayer.queryRelatedFeatures(relatedTopsQuery, function(relatedRecords) {
+              console.log("related recs: ", relatedRecords);
+              if ( ! relatedRecords.hasOwnProperty(features[0].attributes.OBJECTID) ) {
+                console.log("No related records for ObjectID: ", features[0].attributes.OBJECTID);
+                return;
+              }
+              var fset = relatedRecords[features[0].attributes.OBJECTID];
+              var items = array.map(fset.features, function(feature) {
+                return feature.attributes;
+              });
+              //Create data object to be used in store
+              var data = {
+                identifier: "OBJECTID",  //This field needs to have unique values
+                label: "OBJECTID", //Name field for display. Not pertinent to a grid but may be used elsewhere.
+                items: items
+              };
+     
+              //Create data store and bind to grid.
+              store = new ItemFileReadStore({ data:data });
+              grid.setStore(store);
+              grid.setQuery({ OBJECTID: "*" });
+            });
+        }
+ 
+        function findWells(evt) {
+            grid.setStore(null);
+            var selectionQuery = new Query();
+            var tol = map.extent.getWidth()/map.width * 5;
+            var x = evt.mapPoint.x;
+            var y = evt.mapPoint.y;
+            var queryExtent = new Extent(x-tol,y-tol,x+tol,y+tol,evt.mapPoint.spatialReference);
+            selectionQuery.geometry = queryExtent;
+            wellFeatureLayer.selectFeatures(selectionQuery,FeatureLayer.SELECTION_NEW);
+        }
+    });
+    
+    </script> 
+  </head> 
+  <body class="tundra"> 
+    <!--TOPMOST LAYOUT CONTAINER--> 
+    <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false" style="width:100%; height:100%;"> 
+      <!--HEADER SECTION--> 
+      <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="height:75px;"> 
+        Click on a well to select the well and select the related well log information for that well.
+      </div> 
+      <!--CENTER SECTION--> 
+      <!--CENTER CONTAINER--> 
+      <div id="mapDiv" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'" style="margin:5px;"> 
+      </div> 
+      <!--RIGHT CONTAINER--> 
+      <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'" style="width:400px;margin:5px;background-color:whitesmoke;"> 
+        <table data-dojo-type="dojox/grid/DataGrid" jsid="grid" id="grid" data-dojo-props="rowsPerPage:'5', rowSelector:'20px'" style="height:300px; width:300px"> 
+          <thead> 
+            <tr> 
+              <th field="OBJECTID">ID</th> 
+              <th field="ELEVATION">Elevation</th> 
+              <th field="FORMATION">Formation</th> 
+              <th field="TOP">Top</th> 
+            </tr> 
+          </thead> 
+        </table> 
+      </div> 
+    </div> 
+  </body> 
+</html>
+ 

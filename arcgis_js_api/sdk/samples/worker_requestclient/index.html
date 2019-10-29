@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+      on iOS devices-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Request Worker</title> 
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+    <style>
+      html, body, #mapDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+    </style>
+    <script>
+      dojoConfig = {
+        paths: {
+          local: location.pathname.split('/').slice(0,-1).join('/')
+        }
+      };
+    </script>
+    <script src="http://js.arcgis.com/3.11compact/"></script>
+    <script>
+var map;
+require([
+  "esri/map", "esri/InfoTemplate", "esri/layers/FeatureLayer", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
+  "esri/Color", "esri/renderers/UniqueValueRenderer", "esri/workers/RequestClient",
+  "dojo/_base/lang", "dojo/domReady!"
+], function(
+  Map, InfoTemplate, FeatureLayer, SimpleFillSymbol, SimpleLineSymbol, Color, UniqueValueRenderer, RequestClient, lang
+) {
+
+  map = new Map("mapDiv", {
+    basemap: "gray",
+    center: [-82.50, 35.75],
+    zoom: 8
+  });
+
+  var polyLayer = new FeatureLayer("http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2", {
+    outFields: ["NAME", "STATE_NAME"],
+    infoTemplate: new InfoTemplate("&nbsp;", "${NAME}, ${STATE_NAME}"),
+    id: "counties"
+  });
+
+  //make this feature layer use worker for i/o and send responses through a callback function in worker thread
+  polyLayer._task.requestOptions = lang.mixin(polyLayer._task.requestOptions || {}, {
+    workerOptions: {
+      callback: "local/modifyRequests"
+    }
+  });
+  
+  //create a renderer to show difference between calculated bounding boxes and actual shape
+  var renderer = new UniqueValueRenderer(null, function(graphic){
+    return (graphic.attributes.BOUNDS) ? "bounds" : "original";
+  });
+  renderer.addValue({
+    value: "original",
+    symbol: new SimpleFillSymbol().setColor(new Color([247, 175, 47, 0.33])).setOutline(new SimpleLineSymbol().setColor(new Color("black")))
+  });
+  renderer.addValue({
+    value: "bounds",
+    symbol: new SimpleFillSymbol().setColor(null).setOutline(new SimpleLineSymbol().setColor(new Color([225,10,10,0.5])))
+  });
+  polyLayer.setRenderer(renderer);
+
+  //this is a hack to prevent a race condition which is sending 
+  //the feature query through normal IO rather than worker IO the 1st time.
+  var once = polyLayer.on("update-start", function(){
+    once.remove();
+    map.setZoom(7);
+  });
+
+  //we can get the RequestClient instance we created with the options above by using the static method
+  //RequestClient.getClient which returns a cached instance of a requestWorker with the specific callback attached
+  var client = RequestClient.getClient("local/modifyRequests");
+  //we want to import an existing script which has a helpful method to convert geometries to extents
+  client.importScripts("esri/workers/scripts/helpers");
+
+  map.addLayer(polyLayer);
+  map.infoWindow.resize(155, 75);
+});
+    </script> 
+  </head> 
+  <body> 
+    <div id="mapDiv"></div>
+  </body> 
+</html>

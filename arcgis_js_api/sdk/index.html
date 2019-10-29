@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="ie lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="ie lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="styles/screen.css" media="all" rel="stylesheet" type="text/css">
+  <link href="styles/base.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="styles/tailcoat-search.css" media="screen" rel="stylesheet" type="text/css">
+  <!-- Fonts below only works on esri.com and arcgis.com domains -->
+  <link href="//fast.fonts.com/cssapi/23855eec-5fdf-4594-9898-0113a04bfef0.css" rel="stylesheet" type="text/css" />
+  <title>
+    ArcGIS API for JavaScript
+  </title>
+  <style>
+    .navigation-bar {
+      background-image: url("graphics/tailcoat/navigation-bar-background.jpg");
+    }
+    .hexagon-wrapper {
+      background-image: url("graphics/tailcoat/hexagonBannerWhite.png");
+    }
+    .integration-icon {
+      background-image: url("graphics/tailcoat/integration-hexicon.png");
+    }
+    .mobile-icon {
+      background-image: url("graphics/tailcoat/mobile-hexicon.png");
+    }
+    .html5-icon {
+      background-image: url("graphics/tailcoat/html5-hexicon.png");
+    }
+    ul li { padding-left: 0; }
+    ul li:before {
+      content: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @font-face {
+      font-family: 'icomoon';
+      src: url('fonts/tailcoat/tailcoat.eot');
+      src: url('fonts/tailcoat/tailcoat.eot?#iefix') format("embedded-opentype"), url('fonts/tailcoat/tailcoat.woff') format("woff"), url('fonts/tailcoat/tailcoat.ttf') format("truetype"), url('fonts/tailcoat/tailcoat.svg#icomoon') format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="scripts/libs/html5shiv.js"></script>
+    <script src="scripts/libs/selectivizr-min.js"></script>
+    <style>
+      #wrapper {
+        min-width: 960px;
+      }
+    </style>
+  <![endif]-->
+</head>
+  
+  <body class="claro ltr">
+    <div class="drawer">
+      <!-- Mobile Nav Drawer -->
+<nav class="drawer-nav drawer-left"> <!-- drawer-right will put the drawer on the right side. -->
+  <div class="drawer-header">
+    <h4 class="site-title"><a href="/">Arc<span>GIS</span> for Developers</a></h4>
+  </div>
+  <ul>
+    <li><a class="icon-compass drawer-link" href="/features/">Features</a></li>
+    <li><a class="icon-gauge drawer-link" href="/plans/">Plans</a></li>
+    <li><a class="icon-book drawer-link" href="/documentation/">Documentation</a></li>
+    <li><a class="icon-support drawer-link" href="/community/">Community</a></li>
+  </ul>
+</nav>
+
+      <!-- Mobile Nav Drawer -->
+<nav class="drawer-nav drawer-right"> <!-- drawer-right will put the drawer on the right side. -->
+  <div class="drawer-header">
+    <h4 class="site-title user-name">Your Name</h4>
+  </div>
+  <ul>
+    <li>
+      <a class="drawer-link icon-grid-alt" href="/applications/">Applications</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-data-alt" href="/hosted-data/">Hosted Data</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-graph-bar" href="/usage-summary/">Usage Summary</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-storage" href="/downloads/">Downloads</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-comment" href="/feedback/">Feedback</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-user" href="/account/profile/">Account Settings</a>
+    </li>
+    <li>
+      <a class="drawer-link icon-exit log-out-link" href="#">Sign Out</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+    <div class="wrapper">
+      <div class="page sticky-footer">
+        <header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="column-24">
+        <div class="site-brand">
+          <a class="drawer-toggle toggle-site-navigation icon-navigation tablet-show" data-direction="active-left" href="#"></a>
+          <a href="/" class="site-logo">Arc<span>GIS</span> for Developers</a>
+          <span class="site-dropdown-toggle tablet-hide"></span>
+          <nav class="site-dropdown tablet-hide">
+            <a href="http://www.arcgis.com/about/">
+              <h4>ArcGIS</h4>
+              <p>Learn more about ArcGIS for Organizations</p>
+            </a>
+            <a href="/en/" class="current selected">
+              <h4>ArcGIS for Developers</h4>
+              <p>Build location-aware apps with ArcGIS</p>
+            </a>
+            <a href="http://pro.arcgis.com/">
+              <h4>ArcGIS for Professionals</h4>
+              <p>Build your GIS foundation on desktop and server</p>
+            </a>
+            <a href="http://marketplace.arcgis.com/">
+              <h4>ArcGIS Marketplace</h4>
+              <p>Get apps and data for your organization</p>
+            </a>
+          </nav>
+        </div>
+
+        <nav class="site-nav tablet-hide">
+          <ul>
+            <li><a href="/features/">Features</a></li>
+            <li><a class="hide-if-logged-in" href="/plans/">Plans</a></li>
+            <li><a href="/documentation/">Documentation</a></li>
+            <li><a href="/community/">Community</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-search right">
+          <form class="site-search-form" method="GET" action="/search">
+            <span class="site-search-toggle icon-search"></span>
+            <input class="left site-search-input" type="search" name="q" placeholder="Search">
+            
+            <button type="submit" class="btn transparent site-search-button">Go</button>
+
+            <input type="hidden" name="do" value="developers">
+            <input type="hidden" name="start" value="0">
+            <input type="hidden" name="lg" value="en">
+            <input type="hidden" name="product" value="js-api-arcgis">
+          </form>
+        </div>
+
+        <!--nav id="logged-out-navigation" class="site-nav right hide-if-logged-in">
+          <ul>
+            <li>
+              <a id="login-link" class="icon-user" href="/sign-in/">Sign In</a>
+            </li>
+          </ul>
+        </nav>
+
+<div id="logged-in-navigation" class="right hide-if-logged-out">
+  <ul id="logged-in-icons" class="left plain inline compact">
+
+    <li>
+      <div class="tooltip">
+        <a href="/applications/" class="">
+          <span class="icon-grid-alt"></span>
+          <span class="visually-hidden">Applications</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Applications</p>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="/hosted-data/" class="">
+          <span class="icon-data-alt"></span>
+          <span class="visually-hidden">Hosted Data</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Hosted Data</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="icon-graph-bar hide-unless-admin">
+      <div class="tooltip">
+        <a href="/usage-summary/" class="">
+          <span class="icon-graph-bar"></span>
+          <span class="visually-hidden">Usage Summary</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Usage Summary</p>
+        </div>
+      </div>
+    </li>
+
+    <li class="icon-storage">
+      <div class="tooltip">
+        <a href="/downloads/" class="">
+          <span class="icon-storage"></span>
+          <span class="visually-hidden">Downloads</span>
+        </a>
+        <div class="tooltip-wrapper">
+          <p class="tooltip-content">Downloads</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div id="user-dropdown" class="dropdown-navigation dropdown-wrapper right-align right tablet-hide">
+    <a href="/applications/" class="dropdown left">
+      <img width="18" height="18" data-user-avatar="18" class="profile-image"><span data-first-name></span>
+    </a>
+    <div class="dropdown-content">
+      <div class="dropdown-menu">
+        <a href="" data-profile-link class="profile-link">
+          <div class="profile-header">
+            <img width="36" height="36" data-user-avatar="32" class="profile-header-image">
+            <span class="full-name" data-full-name></span>
+            <h6 class="username" data-username></h6>
+          </div>
+        </a>
+        <hr>
+        <ul>
+          <li><a class="hide account-settings-nav-item" href="/account/profile/">Account Settings</a></li>
+          <li><a href="/feedback/">Feedback</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a class="log-out-link" href="#">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div-->
+
+  <!-- Mobile User Menu Button -->
+  <!--a class="mobile-user-dropdown drawer-toggle toggle-site-navigation tablet-show right" data-direction="active-right" href="#">
+    <img>
+  </a>
+</div-->
+
+      </div>
+    </div>
+  </div>
+</header>
+
+          
+  <div class="navigation-bar ">
+  
+    <div class="container">
+      <header>
+        <h1 class="light">ArcGIS API for JavaScript</h1>
+      </header>
+       <nav class="navigation-bar-nav">
+        <ul>
+          
+            <li class="current"><a href=".">Home</a></li>
+          
+            <li class=""><a href="jshelp/">Guide</a></li>
+          
+            <li class=""><a href="jsapi/">API Reference</a></li>
+          
+            <li class=""><a href="jssamples/">Sample Code</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+    <div class="hexagon-wrapper">
+      <div class="container">
+          <div class="column-15 post-1">
+    <div class="content-area">
+      <h2 class="inline light">Use the API</h2>
+<p>Reference the ArcGIS JavaScript API from our CDN and you are ready to get started:  </p>
+<pre><code class="js">&lt;link rel=&quot;stylesheet&quot; href=&quot;http://js.arcgis.com/3.11/esri/css/esri.css&quot;&gt;
+&lt;script src=&quot;http://js.arcgis.com/3.11/&quot;&gt;&lt;/script&gt;</code></pre>
+<!--a href="jstutorials/" class="btn primary">Create Your First Map</a-->
+
+<h2>Your first map</h2>
+
+<p id="map" style="height: 200px;"></p>
+<pre><code class="js">require(["esri/map", "dojo/domReady!"], function(Map) { 
+  var map = new Map("map", {
+    center: [-118, 34.5],
+    zoom: 8,
+    basemap: "topo"
+  });
+});</code></pre>
+
+<!--h2>Code samples</h2>
+<p>Dive into a huge collection of samples that demonstrate functionality included with the API.</p>
+<a href="jssamples/" class="btn clear">Browse Samples</a>
+
+<h2>API reference</h2>
+<p>Browse our detailed API reference and learn about the wide variety of classes and tools provided with the API.</p>
+<a href="jsapi/" class="btn clear">Browse API Reference</a-->
+
+<a href="jshelp/intro_firstmap_amd.html" class="btn primary">Get Started</a>
+<a href="jssamples/" class="btn clear">Samples</a>
+<a href="jsapi/" class="btn clear">API Reference</a>
+
+    </div>
+  </div>
+  <div class="column-8 leader-2">
+    <h3 class="features-hexagon integration-icon">ArcGIS Integration</h3>
+<p>Use ArcGIS.com or your own on-premises ArcGIS Server. The API provides tools to make working with both simple.</p>
+
+<h3 class="features-hexagon mobile-icon">Any Screen, Any Browser</h3>
+<p>Whether its mobile devices or desktops the API is designed to work in a wide variety of situations.</p>
+
+<h3 class="features-hexagon html5-icon">HTML5 and CSS3</h3>
+<p>Leverage the latest HTML 5 and CSS 3 standards to increse the flexibility and performance of your mapping applications. </p>
+
+<hr>
+<a href="jshelp/" class="btn clear fill">JS SDK Overview</a>
+    
+  </div>
+
+      </div>
+    </div>
+  
+
+      </div>
+    </div>
+
+<footer class="footer sticky-footer">
+  <div class="container">
+    <div class="row">
+      <nav class="column-6 tablet-column-24 leader-1">
+        <h4>Arc<span>GIS</span> for Developers</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/documentation/">Documentation</a></li>
+          <li><a href="http://blogs.esri.com/esri/arcgis/category/developer/">Blog</a></li>
+        </ul>
+      </nav>
+
+      <nav class="column-6 tablet-column-24 leader-1">
+        <h4>Arc<span>GIS</span> Platform</h4>
+        <ul>
+          <li><a href="http://www.arcgis.com/about/">ArcGIS</a></li>
+          <li><a href="/">ArcGIS for Developers</a></li>
+          <li><a href="http://pro.arcgis.com/">ArcGIS for Professionals</a></li>
+          <li><a href="http://marketplace.arcgis.com/">ArcGIS Marketplace</a></li>
+          <li><a href="http://solutions.arcgis.com/">ArcGIS Solutions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="column-6 tablet-column-24 leader-1">
+        <h4>About Esri</h4>
+        <ul>
+          <li><a href="http://www.esri.com/about-esri/">About Us</a></li>
+          <li><a href="http://www.esri.com/careers/">Careers</a></li>
+          <li><a href="http://blogs.esri.com/esri/esri-insider/">Insiders Blog</a></li>
+          <li><a href="http://www.esri.com/events/user-conference/index.html">User Conference</a></li>
+          <li><a href="http://www.esri.com/events/devsummit/index.html">Developer Summit</a></li>
+        </ul>
+      </nav>
+
+      <nav class="column-6 tablet-column-24 leader-1">
+        <a class="esri-logo-footer" href="http://www.esri.com">Esri</a>
+        <section class="footer-social-nav">
+          <a class="icon-twitter" href="https://twitter.com/Esri/"></a>
+          <a class="icon-facebook" href="https://www.facebook.com/esrigis"></a>
+          <a class="icon-github" href="http://esri.github.io/"></a>
+          <a class="icon-email" href="http://www.esri.com/about-esri/contact/"></a>
+        </section>
+      </nav>
+
+      <small class="footer-legal column-24 leader-1 trailer-1"><a href="http://www.esri.com/legal/copyright-trademarks">Copyright &copy; 2014 Esri. </a> All rights reserved. | <a href="http://www.esri.com/legal/privacy-arcgis">Privacy</a> | <a href="/terms/faq">Terms of Use</a></small>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
+<script src="scripts/libs/tailcoat.js"></script>
+<script>T.init();</script>
+<script src="scripts/highlight.pack.js"></script>
+<script>
+  // Syntax highlighting.
+  if ( hljs && Array.prototype.map ) {
+    hljs.initHighlighting();
+  }
+</script>
+
+<!-- google analytics -->
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-215788-63']);
+  _gaq.push(['_setDomainName', 'arcgis.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!-- crazy egg -->
+<script type="text/javascript">
+  setTimeout(function(){
+    var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0006/8609.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)
+  }, 1);
+</script>
+
+<link rel="stylesheet" href="//js.arcgis.com/3.11/esri/css/esri.css">
+<script src="//js.arcgis.com/3.11/"></script>
+<script>
+require(["esri/map", "dojo/domReady!"], function(Map) { 
+  var map = new Map("map", {
+    center: [-118, 34.5],
+    zoom: 8,
+    basemap: "topo"
+  });
+});
+</script>
+
+</body>
+</html>
